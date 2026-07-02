@@ -17,9 +17,9 @@ function App() {
       <Nav />
       <main>
         <Hero />
+        <About />
         <Services />
         <HelpDirectory />
-        <About />
         <Process />
         <Testimonial />
         <Contact />
