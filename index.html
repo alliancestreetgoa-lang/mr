@@ -10,6 +10,9 @@
     />
     <meta name="theme-color" content="#0f172a" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="M.R. Accountants — Chartered Certified Accountants, Essex" />
@@ -23,6 +26,20 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!--
+      Static form for Netlify's build-time form detection. The live React form
+      (src/components/Contact.tsx) submits to this via AJAX. Field names must match.
+    -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="service" />
+      <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -13,6 +13,10 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
+  // "Solid" = light chrome on paper (scrolled or mobile menu open).
+  // Otherwise the bar floats over the dark hero and uses light text.
+  const solid = scrolled || open
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
     onScroll()
@@ -30,7 +34,7 @@ export function Nav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
+        solid
           ? 'border-b border-line/80 bg-paper/85 backdrop-blur-md'
           : 'border-b border-transparent bg-transparent'
       }`}
@@ -41,10 +45,20 @@ export function Nav() {
           className="flex items-center gap-3"
           aria-label={`${BUSINESS.name} — home`}
         >
-          <span className="grid h-10 w-10 place-items-center rounded-lg bg-navy-900 font-display text-lg font-semibold text-paper">
+          <span
+            className={`grid h-10 w-10 place-items-center rounded-lg font-display text-lg font-semibold transition-colors ${
+              solid
+                ? 'bg-navy-900 text-paper'
+                : 'border border-white/25 bg-white/10 text-white'
+            }`}
+          >
             MR
           </span>
-          <span className="hidden font-display text-lg font-semibold tracking-tight text-navy-900 sm:block">
+          <span
+            className={`hidden font-display text-lg font-semibold tracking-tight transition-colors sm:block ${
+              solid ? 'text-navy-900' : 'text-white'
+            }`}
+          >
             M.R. Accountants
           </span>
         </a>
@@ -54,14 +68,22 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-slate transition-colors hover:text-navy-900"
+              className={`text-sm font-medium transition-colors ${
+                solid
+                  ? 'text-slate hover:text-navy-900'
+                  : 'text-white/80 hover:text-white'
+              }`}
             >
               {l.label}
             </a>
           ))}
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-full bg-navy-900 px-5 py-2.5 text-sm font-semibold text-paper transition-all hover:bg-navy-800 hover:shadow-lg hover:shadow-navy-900/15"
+            className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all ${
+              solid
+                ? 'bg-navy-900 text-paper hover:bg-navy-800 hover:shadow-lg hover:shadow-navy-900/15'
+                : 'bg-white text-navy-950 hover:bg-white hover:shadow-lg hover:shadow-black/20'
+            }`}
           >
             Book a consultation
           </a>
@@ -70,7 +92,9 @@ export function Nav() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="grid h-11 w-11 place-items-center rounded-lg text-navy-900 transition-colors hover:bg-paper-2 md:hidden"
+          className={`grid h-11 w-11 place-items-center rounded-lg transition-colors md:hidden ${
+            solid ? 'text-navy-900 hover:bg-paper-2' : 'text-white hover:bg-white/10'
+          }`}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
         >

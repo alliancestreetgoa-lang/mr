@@ -40,17 +40,29 @@ Business details baked in:
 - Tel 020 3432 9138 · info@mraccountants.com
 - ACCA Chartered Certified
 
-## Contact form
+## Deploy (Netlify)
 
-The form in `src/components/Contact.tsx` currently opens the visitor's email client
-(`mailto:`) pre-filled with their enquiry. This works with zero backend but depends on
-the visitor having an email app configured.
+`netlify.toml` is committed — connect the repo in Netlify and it builds automatically
+(`npm run build` → `dist`), with an SPA fallback and cache headers for hashed assets.
 
-**To make it a true server-side form**, swap the `handleSubmit` in `Contact.tsx` for one
-of:
+## Contact form (Netlify Forms — live)
 
-- **Netlify Forms** — add `data-netlify="true"` + a hidden form; no code backend needed.
-- **Formspree / Basin** — `POST` the `FormData` to your endpoint with `fetch`.
+The form in `src/components/Contact.tsx` submits **server-side via Netlify Forms** — no
+backend or third-party account needed. Submissions appear under **Forms** in the Netlify
+dashboard; add a notification email/Slack there to get pinged on each enquiry.
+
+How it's wired:
+- A hidden static `<form name="contact">` in `index.html` lets Netlify detect the form at
+  build time (React forms are invisible to its crawler otherwise).
+- The live React form AJAX-`POST`s url-encoded data to `/` with `form-name=contact`.
+- A `bot-field` honeypot filters spam.
+
+**Field names must stay in sync** between the hidden form in `index.html` and the React
+form. To swap to Formspree/Basin instead, point the `fetch` in `handleSubmit` at your
+endpoint.
+
+> **Note:** Netlify Forms only work on a deployed Netlify site — submitting on `localhost`
+> will show the error state. That's expected.
 
 ## Structure
 

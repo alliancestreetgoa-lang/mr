@@ -32,37 +32,48 @@ const DETAILS = [
 const inputClass =
   'w-full rounded-xl border border-line bg-paper px-4 py-3 text-navy-900 placeholder:text-mute/70 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/25'
 
-export function Contact() {
-  const [sent, setSent] = useState(false)
+const encode = (data: Record<string, string>) =>
+  Object.keys(data)
+    .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(data[k])}`)
+    .join('&')
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+type Status = 'idle' | 'submitting' | 'success' | 'error'
+
+const MAP_SRC =
+  'https://www.google.com/maps?q=9B+The+Broadway,+Woodford+Green,+Essex+IG8+0HL&output=embed'
+
+export function Contact() {
+  const [status, setStatus] = useState<Status>('idle')
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const form = e.currentTarget
     const data = new FormData(form)
-    const name = String(data.get('name') || '')
-    const email = String(data.get('email') || '')
-    const phone = String(data.get('phone') || '')
-    const service = String(data.get('service') || '')
-    const message = String(data.get('message') || '')
 
-    const subject = `Enquiry from ${name || 'website'}${
-      service ? ` — ${service}` : ''
-    }`
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      phone ? `Phone: ${phone}` : '',
-      service ? `Interested in: ${service}` : '',
-      '',
-      message,
-    ]
-      .filter(Boolean)
-      .join('\n')
+    // Honeypot — if a bot filled the hidden field, silently "succeed".
+    if (data.get('bot-field')) {
+      setStatus('success')
+      return
+    }
 
-    window.location.href = `${BUSINESS.emailHref}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`
-    setSent(true)
+    const payload: Record<string, string> = { 'form-name': 'contact' }
+    data.forEach((value, key) => {
+      payload[key] = String(value)
+    })
+
+    setStatus('submitting')
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode(payload),
+      })
+      if (!res.ok) throw new Error(String(res.status))
+      setStatus('success')
+      form.reset()
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -90,7 +101,7 @@ export function Contact() {
                     <Icon className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-mute">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate">
                       {label}
                     </p>
                     <p className="mt-0.5 font-medium text-navy-900">{value}</p>
@@ -121,7 +132,7 @@ export function Contact() {
         {/* Form */}
         <div className="reveal lg:col-span-7">
           <div className="rounded-3xl border border-line bg-white p-7 shadow-sm sm:p-10">
-            {sent ? (
+            {status === 'success' ? (
               <div className="flex min-h-80 flex-col items-center justify-center text-center">
                 <span className="grid h-16 w-16 place-items-center rounded-full bg-accent/10 text-accent">
                   <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -129,26 +140,43 @@ export function Contact() {
                   </svg>
                 </span>
                 <h3 className="mt-6 font-display text-2xl font-medium text-navy-950">
-                  Nearly there
+                  Thank you — message received
                 </h3>
                 <p className="mt-3 max-w-sm text-slate">
-                  Your email app should have opened with your enquiry ready to
-                  send. If it didn’t, email us directly at{' '}
-                  <a href={BUSINESS.emailHref} className="font-medium text-accent underline">
-                    {BUSINESS.email}
+                  We’ve got your enquiry and will be in touch shortly. If it’s
+                  urgent, call us on{' '}
+                  <a href={BUSINESS.phoneHref} className="font-medium text-accent underline">
+                    {BUSINESS.phone}
                   </a>
                   .
                 </p>
                 <button
                   type="button"
-                  onClick={() => setSent(false)}
+                  onClick={() => setStatus('idle')}
                   className="mt-6 text-sm font-semibold text-navy-900 underline underline-offset-4"
                 >
                   Send another message
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="grid gap-5" noValidate>
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                className="grid gap-5"
+                noValidate
+              >
+                {/* Netlify plumbing */}
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>
+                    Don’t fill this out if you’re human:{' '}
+                    <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                  </label>
+                </p>
+
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-navy-900">
@@ -195,19 +223,54 @@ export function Contact() {
                   <textarea id="message" name="message" required rows={4} className={`${inputClass} resize-none`} placeholder="Tell us a little about your business and what you’re looking for…" />
                 </div>
 
+                {status === 'error' && (
+                  <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">
+                    Something went wrong sending your message. Please try again,
+                    or email us directly at{' '}
+                    <a href={BUSINESS.emailHref} className="font-medium underline">
+                      {BUSINESS.email}
+                    </a>
+                    .
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 text-sm font-semibold text-paper transition-all hover:bg-navy-800 hover:shadow-lg hover:shadow-navy-900/15"
+                  disabled={status === 'submitting'}
+                  className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 text-sm font-semibold text-paper transition-all hover:bg-navy-800 hover:shadow-lg hover:shadow-navy-900/15 disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Send enquiry
+                  {status === 'submitting' ? (
+                    <>
+                      <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 0 1 8-8V0C5.4 0 0 5.4 0 12h4z" />
+                      </svg>
+                      Sending…
+                    </>
+                  ) : (
+                    'Send enquiry'
+                  )}
                 </button>
-                <p className="text-xs leading-relaxed text-mute">
+                <p className="text-xs leading-relaxed text-slate">
                   By submitting, you agree to be contacted about your enquiry. We
                   never share your details.
                 </p>
               </form>
             )}
           </div>
+        </div>
+      </div>
+
+      {/* Map */}
+      <div className="container-x mt-16">
+        <div className="reveal overflow-hidden rounded-3xl border border-line shadow-sm">
+          <iframe
+            title="Map showing M.R. Accountants at 9B The Broadway, Woodford Green, Essex IG8 0HL"
+            src={MAP_SRC}
+            className="h-80 w-full border-0 sm:h-96"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
       </div>
     </section>
