@@ -82,7 +82,7 @@ export function About() {
         {/* Detailed narrative */}
         <div className="mt-16 grid gap-x-12 gap-y-10 border-t border-line pt-14 md:grid-cols-2" data-reveal>
           <div>
-            <h3 className="font-display text-2xl font-medium text-accent">
+            <h3 className="font-display text-2xl font-medium leading-snug text-accent md:min-h-[4.25rem]">
               Plan for tomorrow by understanding today
             </h3>
             <div className="mt-5 space-y-5 leading-relaxed text-slate">
@@ -103,7 +103,7 @@ export function About() {
           </div>
 
           <div>
-            <h3 className="font-display text-2xl font-medium text-accent">
+            <h3 className="font-display text-2xl font-medium leading-snug text-accent md:min-h-[4.25rem]">
               You run your business, we’ll handle your finances
             </h3>
             <div className="mt-5 space-y-5 leading-relaxed text-slate">
