@@ -15,10 +15,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3">
-              <Logo
-                onDark
-                className="h-14 w-auto rounded-lg bg-white p-2 shadow-sm"
-              />
+              <Logo onDark className="h-16 w-auto" />
             </div>
             <p className="mt-5 max-w-sm leading-relaxed text-paper/60">
               {BUSINESS.tagline} Chartered certified accountants supporting

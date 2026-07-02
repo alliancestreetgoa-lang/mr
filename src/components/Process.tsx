@@ -4,18 +4,31 @@ export function Process() {
   return (
     <section id="process" className="scroll-mt-20 bg-paper py-24 sm:py-28">
       <div className="container-x">
-        <div className="reveal max-w-2xl">
-          <p className="eyebrow">
-            <span className="h-px w-8 bg-accent" />
-            How we work
-          </p>
-          <h2 className="mt-5 font-display text-4xl font-light leading-tight tracking-tight text-brand-950 sm:text-5xl">
-            A calm, considered path to clarity
-          </h2>
-          <p className="mt-5 text-lg leading-relaxed text-slate">
-            Working with a new accountant should feel reassuring, not daunting.
-            Here is exactly what to expect.
-          </p>
+        <div className="grid items-center gap-10 lg:grid-cols-12">
+          <div className="reveal lg:col-span-6">
+            <p className="eyebrow">
+              <span className="h-px w-8 bg-accent" />
+              How we work
+            </p>
+            <h2 className="mt-5 font-display text-4xl font-light leading-tight tracking-tight text-brand-950 sm:text-5xl">
+              A calm, considered path to clarity
+            </h2>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate">
+              Working with a new accountant should feel reassuring, not daunting.
+              Here is exactly what to expect.
+            </p>
+          </div>
+
+          <div className="reveal lg:col-span-6">
+            <div className="overflow-hidden rounded-3xl border border-line shadow-sm">
+              <img
+                src="/images/process.jpg"
+                alt="An M.R. Accountants adviser planning with a client over documents"
+                loading="lazy"
+                className="aspect-[16/10] w-full object-cover"
+              />
+            </div>
+          </div>
         </div>
 
         <ol className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

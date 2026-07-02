@@ -46,10 +46,7 @@ export function Nav() {
           className="flex items-center gap-3"
           aria-label={`${BUSINESS.name} — home`}
         >
-          <Logo
-            onDark={!solid}
-            className="h-11 w-auto rounded-md bg-white p-1 shadow-sm ring-1 ring-black/5"
-          />
+          <Logo onDark={!solid} className="h-10 w-auto sm:h-11" />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
