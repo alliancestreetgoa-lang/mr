@@ -1,3 +1,4 @@
+import { MotionConfig } from 'framer-motion'
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { TrustBar } from './components/TrustBar'
@@ -8,13 +9,10 @@ import { Process } from './components/Process'
 import { Testimonial } from './components/Testimonial'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
-import { useReveal } from './lib/useReveal'
 
 function App() {
-  const ref = useReveal<HTMLDivElement>()
-
   return (
-    <div ref={ref}>
+    <MotionConfig reducedMotion="user">
       <Nav />
       <main>
         <Hero />
@@ -27,7 +25,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
-    </div>
+    </MotionConfig>
   )
 }
 

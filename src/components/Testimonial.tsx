@@ -1,4 +1,6 @@
+import { motion } from 'framer-motion'
 import { IconQuote } from './Icons'
+import { revealProps } from '../lib/motion'
 
 export function Testimonial() {
   return (
@@ -19,7 +21,7 @@ export function Testimonial() {
       </div>
 
       <div className="container-x relative">
-        <div className="reveal mx-auto max-w-3xl text-center">
+        <motion.div className="mx-auto max-w-3xl text-center" {...revealProps}>
           <IconQuote className="mx-auto h-12 w-12 text-accent/40" />
           <blockquote className="mt-8 font-display text-2xl font-light leading-snug tracking-tight text-brand-950 sm:text-4xl sm:leading-[1.25]">
             “M.R. Accountants have been a game changer for my company with their
@@ -40,7 +42,7 @@ export function Testimonial() {
               </span>
             </span>
           </figcaption>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

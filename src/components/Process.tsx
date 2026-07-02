@@ -1,11 +1,13 @@
+import { motion } from 'framer-motion'
 import { PROCESS } from '../data'
+import { revealProps, revealDelay } from '../lib/motion'
 
 export function Process() {
   return (
     <section id="process" className="scroll-mt-20 bg-paper py-24 sm:py-28">
       <div className="container-x">
         <div className="grid items-center gap-10 lg:grid-cols-12">
-          <div className="reveal lg:col-span-6">
+          <motion.div className="lg:col-span-6" {...revealProps}>
             <p className="eyebrow">
               <span className="h-px w-8 bg-accent" />
               How we work
@@ -17,9 +19,9 @@ export function Process() {
               Working with a new accountant should feel reassuring, not daunting.
               Here is exactly what to expect.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="reveal lg:col-span-6">
+          <motion.div className="lg:col-span-6" {...revealProps}>
             <div className="overflow-hidden rounded-3xl border border-line shadow-sm">
               <img
                 src="/images/process.jpg"
@@ -28,15 +30,15 @@ export function Process() {
                 className="aspect-[16/10] w-full object-cover"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
 
         <ol className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {PROCESS.map((p, i) => (
-            <li
+            <motion.li
               key={p.step}
-              className="reveal relative flex flex-col rounded-2xl border border-line bg-white p-7"
-              style={{ transitionDelay: `${i * 70}ms` }}
+              className="relative flex flex-col rounded-2xl border border-line bg-white p-7"
+              {...revealDelay(i)}
             >
               <span className="font-display text-4xl font-light text-accent">
                 {p.step}
@@ -57,7 +59,7 @@ export function Process() {
                   </svg>
                 </span>
               )}
-            </li>
+            </motion.li>
           ))}
         </ol>
       </div>

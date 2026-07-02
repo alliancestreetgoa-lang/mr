@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from 'react'
+import { motion } from 'framer-motion'
 import { BUSINESS, SERVICE_GROUPS } from '../data'
 import { IconPhone, IconMail, IconPin, IconClock } from './Icons'
+import { revealProps } from '../lib/motion'
 
 const DETAILS = [
   {
@@ -80,7 +82,7 @@ export function Contact() {
     <section id="contact" className="scroll-mt-20 bg-paper py-24 sm:py-28">
       <div className="container-x grid gap-12 lg:grid-cols-12">
         {/* Intro + details */}
-        <div className="reveal lg:col-span-5">
+        <motion.div className="lg:col-span-5" {...revealProps}>
           <p className="eyebrow">
             <span className="h-px w-8 bg-accent" />
             Get in touch
@@ -127,10 +129,10 @@ export function Contact() {
               )
             })}
           </ul>
-        </div>
+        </motion.div>
 
         {/* Form */}
-        <div className="reveal lg:col-span-7">
+        <motion.div className="lg:col-span-7" {...revealProps}>
           <div className="rounded-3xl border border-line bg-white p-7 shadow-sm sm:p-10">
             {status === 'success' ? (
               <div className="flex min-h-80 flex-col items-center justify-center text-center">
@@ -258,12 +260,12 @@ export function Contact() {
               </form>
             )}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Map */}
       <div className="container-x mt-16">
-        <div className="reveal overflow-hidden rounded-3xl border border-line shadow-sm">
+        <motion.div className="overflow-hidden rounded-3xl border border-line shadow-sm" {...revealProps}>
           <iframe
             title="Map showing M.R. Accountants at 9B The Broadway, Woodford Green, Essex IG8 0HL"
             src={MAP_SRC}
@@ -271,7 +273,7 @@ export function Contact() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   )
