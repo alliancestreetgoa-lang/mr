@@ -1,7 +1,6 @@
 import { MotionConfig } from 'framer-motion'
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
-import { TrustBar } from './components/TrustBar'
 import { Services } from './components/Services'
 import { HelpDirectory } from './components/HelpDirectory'
 import { About } from './components/About'
@@ -16,7 +15,6 @@ function App() {
       <Nav />
       <main>
         <Hero />
-        <TrustBar />
         <Services />
         <HelpDirectory />
         <About />

@@ -344,6 +344,13 @@ export const PROCESS = [
   },
 ]
 
+export const TRUST_POINTS = [
+  'ACCA Chartered Certified',
+  'Partner-led advice',
+  'Fixed, transparent fees',
+  'Cloud-first accounting',
+]
+
 export const STATS = [
   { value: 'ACCA', label: 'Chartered Certified' },
   { value: '20+', label: 'Areas of expertise' },

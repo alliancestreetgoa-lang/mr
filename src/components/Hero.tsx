@@ -1,4 +1,4 @@
-import { BUSINESS, STATS } from '../data'
+import { BUSINESS, STATS, TRUST_POINTS } from '../data'
 import { IconArrow, IconPhone } from './Icons'
 
 export function Hero() {
@@ -86,6 +86,27 @@ export function Hero() {
             </div>
           ))}
         </dl>
+
+        {/* Trust points */}
+        <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-4">
+          {TRUST_POINTS.map((point) => (
+            <li key={point} className="flex items-center gap-2.5">
+              <svg
+                viewBox="0 0 24 24"
+                className="h-5 w-5 shrink-0 text-accent"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span className="text-sm font-medium text-brand-800">{point}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )
