@@ -1,7 +1,14 @@
-import { HELP_DIRECTORY } from '../data'
+import { useState } from 'react'
+import { HELP_DIRECTORY, type HelpService } from '../data'
 import { IconArrow } from './Icons'
+import { ServiceModal } from './ServiceModal'
 
 export function HelpDirectory() {
+  const [active, setActive] = useState<{
+    service: HelpService
+    category: string
+  } | null>(null)
+
   return (
     <section
       id="help"
@@ -20,8 +27,7 @@ export function HelpDirectory() {
           </h2>
           <p className="mt-5 max-w-sm text-lg leading-relaxed text-slate">
             Every service we offer, in one place — from day-to-day compliance to
-            specialist tax and advisory work. If you can’t see exactly what you
-            need, just ask.
+            specialist tax and advisory work. Select any service to learn more.
           </p>
           <a
             href="#contact"
@@ -40,16 +46,34 @@ export function HelpDirectory() {
                 <h3 className="font-display text-lg font-semibold text-accent">
                   {cat.title}
                 </h3>
-                <ul className="mt-3 space-y-2.5 border-t border-line pt-3">
+                <ul className="mt-3 space-y-1 border-t border-line pt-3">
                   {cat.items.map((item) => (
-                    <li key={item}>
-                      <a
-                        href="#contact"
-                        className="group flex items-start gap-2.5 text-[0.95rem] leading-snug text-slate transition-colors hover:text-brand-950"
+                    <li key={item.name}>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setActive({ service: item, category: cat.title })
+                        }
+                        aria-haspopup="dialog"
+                        className="group flex w-full items-start gap-2.5 rounded-md py-1.5 text-left text-[0.95rem] leading-snug text-slate transition-colors hover:text-brand-950"
                       >
                         <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-sage transition-colors group-hover:bg-accent" />
-                        {item}
-                      </a>
+                        <span className="underline-offset-4 group-hover:underline">
+                          {item.name}
+                        </span>
+                        <svg
+                          viewBox="0 0 24 24"
+                          className="ml-auto mt-0.5 h-4 w-4 shrink-0 -translate-x-1 text-transparent transition-all group-hover:translate-x-0 group-hover:text-accent"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden
+                        >
+                          <path d="M9 6l6 6-6 6" />
+                        </svg>
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -58,6 +82,12 @@ export function HelpDirectory() {
           </div>
         </div>
       </div>
+
+      <ServiceModal
+        service={active?.service ?? null}
+        category={active?.category ?? null}
+        onClose={() => setActive(null)}
+      />
     </section>
   )
 }
