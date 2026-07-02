@@ -26,10 +26,10 @@ export function Hero() {
             Chartered Certified Accountants · Essex
           </p>
 
-          <h1 className="mt-6 font-display text-[2.6rem] font-light leading-[1.05] tracking-tight text-brand-950 sm:text-6xl lg:text-7xl">
+          <h1 className="mt-6 font-display text-[2.6rem] font-light leading-[1.08] tracking-tight text-brand-950 sm:text-5xl lg:text-6xl">
             Turning financial{' '}
             <span className="italic text-accent">chaos</span>
-            <br className="hidden sm:block" /> into lasting{' '}
+            <br /> into lasting{' '}
             <span className="italic text-accent">clarity</span>.
           </h1>
 
