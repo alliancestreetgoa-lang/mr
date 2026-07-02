@@ -6,7 +6,7 @@ export function About() {
     <section id="about" className="scroll-mt-20 border-y border-line bg-paper-2/60 py-24 sm:py-28">
       <div className="container-x">
         {/* Intro + photo/credential */}
-        <div className="grid items-center gap-14 lg:grid-cols-12">
+        <div className="grid items-start gap-14 lg:grid-cols-12">
           <div className="lg:col-span-7" data-reveal>
             <p className="eyebrow">
               <span className="h-px w-8 bg-accent" />
