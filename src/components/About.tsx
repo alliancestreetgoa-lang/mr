@@ -26,6 +26,28 @@ export function About() {
             <blockquote className="mt-9 border-l-2 border-accent pl-6 font-display text-xl font-light italic leading-relaxed text-brand-900 sm:text-2xl">
               “{BUSINESS.tagline}”
             </blockquote>
+
+            {/* Plan for tomorrow */}
+            <div className="mt-12">
+              <h3 className="font-display text-2xl font-medium leading-snug text-accent">
+                Plan for tomorrow by understanding today
+              </h3>
+              <div className="mt-5 space-y-5 leading-relaxed text-slate">
+                <p>
+                  Whether you are launching a new venture, have an established
+                  business, or are simply looking for guidance with your tax
+                  matters, we are here to provide you with reliable professional
+                  advice.
+                </p>
+                <p>
+                  With expertise in accounting and taxation, we recognise that
+                  few business and financial decisions can be made without
+                  considering their tax implications. By applying this knowledge
+                  to your business, we offer cutting-edge, value-driven services
+                  and advice from a team of truly innovative professionals.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Photo + credential card */}
@@ -79,31 +101,13 @@ export function About() {
           </div>
         </div>
 
-        {/* Detailed narrative */}
-        <div className="mt-16 grid gap-x-12 gap-y-10 border-t border-line pt-14 md:grid-cols-2" data-reveal>
+        {/* You run your business + closing statement */}
+        <div
+          className="mt-16 grid gap-x-12 gap-y-8 border-t border-line pt-14 md:grid-cols-2 md:items-center"
+          data-reveal
+        >
           <div>
-            <h3 className="font-display text-2xl font-medium leading-snug text-accent md:min-h-[4.25rem]">
-              Plan for tomorrow by understanding today
-            </h3>
-            <div className="mt-5 space-y-5 leading-relaxed text-slate">
-              <p>
-                Whether you are launching a new venture, have an established
-                business, or are simply looking for guidance with your tax
-                matters, we are here to provide you with reliable professional
-                advice.
-              </p>
-              <p>
-                With expertise in accounting and taxation, we recognise that few
-                business and financial decisions can be made without considering
-                their tax implications. By applying this knowledge to your
-                business, we offer cutting-edge, value-driven services and advice
-                from a team of truly innovative professionals.
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-display text-2xl font-medium leading-snug text-accent md:min-h-[4.25rem]">
+            <h3 className="font-display text-2xl font-medium leading-snug text-accent">
               You run your business, we’ll handle your finances
             </h3>
             <div className="mt-5 space-y-5 leading-relaxed text-slate">
@@ -124,14 +128,12 @@ export function About() {
               </p>
             </div>
           </div>
-        </div>
 
-        <p
-          className="mt-12 max-w-3xl font-display text-2xl font-light leading-snug text-accent sm:text-3xl"
-          data-reveal
-        >
-          This is why so many individuals and companies choose to work with us.
-        </p>
+          <p className="font-display text-2xl font-light leading-snug text-accent sm:text-3xl">
+            This is why so many individuals and companies choose to work with
+            us.
+          </p>
+        </div>
       </div>
     </section>
   )
