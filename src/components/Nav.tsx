@@ -46,7 +46,7 @@ export function Nav() {
           className="flex items-center gap-3"
           aria-label={`${BUSINESS.name} — home`}
         >
-          <Logo onDark={!solid} className="h-10 w-auto sm:h-11" />
+          <Logo className="h-10 w-auto sm:h-11" />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -54,22 +54,14 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className={`text-sm font-medium transition-colors ${
-                solid
-                  ? 'text-slate hover:text-brand-900'
-                  : 'text-white/80 hover:text-white'
-              }`}
+              className="text-sm font-medium text-slate transition-colors hover:text-brand-900"
             >
               {l.label}
             </a>
           ))}
           <a
             href="#contact"
-            className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all ${
-              solid
-                ? 'bg-brand-900 text-paper hover:bg-brand-800 hover:shadow-lg hover:shadow-brand-900/15'
-                : 'bg-white text-brand-950 hover:bg-white hover:shadow-lg hover:shadow-black/20'
-            }`}
+            className="inline-flex items-center gap-2 rounded-full bg-brand-900 px-5 py-2.5 text-sm font-semibold text-paper transition-all hover:bg-brand-800 hover:shadow-lg hover:shadow-brand-900/15"
           >
             Book a consultation
           </a>
@@ -78,9 +70,7 @@ export function Nav() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className={`grid h-11 w-11 place-items-center rounded-lg transition-colors md:hidden ${
-            solid ? 'text-brand-900 hover:bg-paper-2' : 'text-white hover:bg-white/10'
-          }`}
+          className="grid h-11 w-11 place-items-center rounded-lg text-brand-900 transition-colors hover:bg-paper-2 md:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
         >
