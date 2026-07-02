@@ -18,7 +18,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="container-x relative pb-20 pt-36 sm:pb-28 sm:pt-44">
+      <div className="container-x relative pb-14 pt-28 sm:pb-16 sm:pt-32">
         <div className="grid items-center gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
           <p className="eyebrow">
@@ -63,7 +63,7 @@ export function Hero() {
               <img
                 src="/images/hero.jpg"
                 alt="M.R. Accountants advising business clients in a meeting"
-                className="aspect-[4/5] w-full rounded-3xl object-cover shadow-xl"
+                className="aspect-[5/4] w-full rounded-3xl object-cover shadow-xl lg:aspect-[4/5] lg:max-h-[420px]"
               />
               <div
                 aria-hidden
@@ -74,7 +74,7 @@ export function Hero() {
         </div>
 
         {/* Stat strip */}
-        <dl className="mt-16 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:mt-20 sm:grid-cols-4">
+        <dl className="mt-10 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:mt-12 sm:grid-cols-4">
           {STATS.map((s) => (
             <div key={s.label} className="bg-white px-5 py-6">
               <dt className="font-display text-2xl font-medium text-brand-950 sm:text-3xl">
