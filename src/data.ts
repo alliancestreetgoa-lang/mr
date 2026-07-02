@@ -1,3 +1,4 @@
+import { asset } from './lib/asset'
 export const BUSINESS = {
   name: 'M.R. Accountants',
   tagline: 'Accounting is the art of turning chaos into clarity.',
@@ -25,7 +26,7 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
   {
     id: 'accounting',
     title: 'Accounting & Payroll',
-    image: '/images/accounting.jpg',
+    image: asset('/images/accounting.jpg'),
     blurb:
       'The dependable core — books, statutory accounts and payroll handled with precision, so your numbers are always ready when you need them.',
     items: [
@@ -38,7 +39,7 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
   {
     id: 'tax',
     title: 'Tax Advisory & Planning',
-    image: '/images/tax.jpg',
+    image: asset('/images/tax.jpg'),
     blurb:
       'Forward-looking tax strategy that keeps you compliant and keeps more of what you earn — from corporate structure to cross-border planning.',
     items: [
@@ -52,7 +53,7 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
   {
     id: 'advisory',
     title: 'Business Advisory',
-    image: '/images/advisory.jpg',
+    image: asset('/images/advisory.jpg'),
     blurb:
       'A commercial partner for the decisions that shape your growth — funding, acquisitions, expansion and the plans behind them.',
     items: [
@@ -66,7 +67,7 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
   {
     id: 'private',
     title: 'Private Client & Wealth',
-    image: '/images/private.jpg',
+    image: asset('/images/private.jpg'),
     blurb:
       'Considered advice for individuals and families — protecting wealth today and passing it on with intent tomorrow.',
     items: [

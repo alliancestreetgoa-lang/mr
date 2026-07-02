@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 import { useState } from 'react'
 
 /**
@@ -19,7 +20,7 @@ export function Logo({
   if (!failed) {
     return (
       <img
-        src="/logo.png"
+        src={asset('/logo.png')}
         alt="M.R. Accountants"
         className={className}
         onError={() => setFailed(true)}

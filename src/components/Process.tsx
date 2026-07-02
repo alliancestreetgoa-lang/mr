@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 import { PROCESS } from '../data'
 
 export function Process() {
@@ -22,7 +23,7 @@ export function Process() {
           <div className="lg:col-span-6" data-reveal>
             <div className="overflow-hidden rounded-3xl border border-line shadow-sm">
               <img
-                src="/images/process.jpg"
+                src={asset('/images/process.jpg')}
                 alt="An M.R. Accountants adviser planning with a client over documents"
                 loading="lazy"
                 className="aspect-[16/10] w-full object-cover"

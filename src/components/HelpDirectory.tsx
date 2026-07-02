@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 import { useState } from 'react'
 import { HELP_DIRECTORY, type HelpService } from '../data'
 import { IconArrow } from './Icons'
@@ -39,7 +40,7 @@ export function HelpDirectory() {
 
           <div className="mt-10 hidden overflow-hidden rounded-3xl border border-line shadow-sm lg:block">
             <img
-              src="/images/help.jpg"
+              src={asset('/images/help.jpg')}
               alt="An M.R. Accountants adviser working with a client"
               loading="lazy"
               className="aspect-[4/3] w-full object-cover"

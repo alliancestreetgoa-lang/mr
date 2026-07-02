@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 import { IconQuote } from './Icons'
 
 export function Testimonial() {
@@ -5,7 +6,7 @@ export function Testimonial() {
     <section className="relative overflow-hidden border-y border-line bg-white py-24 sm:py-32">
       {/* Faint photo texture + wash */}
       <img
-        src="/images/testimonial.jpg"
+        src={asset('/images/testimonial.jpg')}
         alt=""
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.06]"

@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 import { BUSINESS, STATS, TRUST_POINTS } from '../data'
 import { IconArrow, IconPhone } from './Icons'
 
@@ -61,7 +62,7 @@ export function Hero() {
           <div className="hidden lg:col-span-5 lg:block">
             <div className="relative">
               <img
-                src="/images/hero.jpg"
+                src={asset('/images/hero.jpg')}
                 alt="M.R. Accountants advising business clients in a meeting"
                 className="aspect-[5/4] w-full rounded-3xl object-cover shadow-xl lg:aspect-[4/5] lg:max-h-[420px]"
               />

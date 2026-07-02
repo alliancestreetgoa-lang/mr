@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 import { BUSINESS } from '../data'
 
 export function About() {
@@ -39,7 +40,7 @@ export function About() {
         <div className="space-y-6 lg:col-span-5" data-reveal>
           <div className="overflow-hidden rounded-3xl border border-line shadow-sm">
             <img
-              src="/images/about.jpg"
+              src={asset('/images/about.jpg')}
               alt="The M.R. Accountants team in their Essex office"
               loading="lazy"
               className="aspect-[16/10] w-full object-cover"
