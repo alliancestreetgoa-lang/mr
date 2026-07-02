@@ -73,6 +73,52 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
   },
 ]
 
+export type HelpCategory = { title: string; items: string[] }
+
+// Full services directory (mirrors the firm's "How we can help you?" listing)
+export const HELP_DIRECTORY: HelpCategory[] = [
+  {
+    title: 'Assurance',
+    items: ['Accounting'],
+  },
+  {
+    title: 'Business process',
+    items: [
+      'Online accounting',
+      'Outsourced accounting',
+      'Outsourced HR consultancy services',
+      'Payroll',
+    ],
+  },
+  {
+    title: 'Business advisory',
+    items: [
+      'Acquisitions & disposals',
+      'Expansion & improvement',
+      'Funding & asset finance',
+      'Litigation support & forensic',
+    ],
+  },
+  {
+    title: 'Tax advisory',
+    items: [
+      'Corporate tax planning',
+      'International tax planning',
+      'Personal tax planning',
+      'Tax investigations',
+      'Tax reliefs (including R&D)',
+      'VAT & customs duty',
+      'Wealth planning & private client',
+      'Commercial and residential mortgage lending',
+      'Will and inheritance tax',
+    ],
+  },
+  {
+    title: 'Not for profit services',
+    items: ['Charity accounts', 'CIC accounts', 'CIO accounts'],
+  },
+]
+
 export const PROCESS = [
   {
     step: '01',

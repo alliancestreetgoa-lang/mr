@@ -9,7 +9,7 @@ export function Process() {
             <span className="h-px w-8 bg-accent" />
             How we work
           </p>
-          <h2 className="mt-5 font-display text-4xl font-light leading-tight tracking-tight text-navy-950 sm:text-5xl">
+          <h2 className="mt-5 font-display text-4xl font-light leading-tight tracking-tight text-brand-950 sm:text-5xl">
             A calm, considered path to clarity
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate">
@@ -28,7 +28,7 @@ export function Process() {
               <span className="font-display text-4xl font-light text-accent">
                 {p.step}
               </span>
-              <h3 className="mt-4 font-display text-xl font-medium text-navy-950">
+              <h3 className="mt-4 font-display text-xl font-medium text-brand-950">
                 {p.title}
               </h3>
               <p className="mt-2.5 text-sm leading-relaxed text-slate">

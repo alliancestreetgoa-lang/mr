@@ -1,4 +1,5 @@
 import { BUSINESS } from '../data'
+import { Logo } from './Logo'
 
 const NAV = [
   { href: '#services', label: 'Services' },
@@ -9,17 +10,15 @@ const NAV = [
 
 export function Footer() {
   return (
-    <footer className="bg-navy-950 text-paper">
+    <footer className="bg-brand-950 text-paper">
       <div className="container-x py-16">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-lg bg-paper/10 font-display text-lg font-semibold text-paper">
-                MR
-              </span>
-              <span className="font-display text-lg font-semibold">
-                M.R. Accountants
-              </span>
+              <Logo
+                onDark
+                className="h-14 w-auto rounded-lg bg-white p-2 shadow-sm"
+              />
             </div>
             <p className="mt-5 max-w-sm leading-relaxed text-paper/60">
               {BUSINESS.tagline} Chartered certified accountants supporting

@@ -26,7 +26,7 @@ export function TrustBar() {
               >
                 <path d="M20 6 9 17l-5-5" />
               </svg>
-              <span className="text-sm font-medium text-navy-800">{p}</span>
+              <span className="text-sm font-medium text-brand-800">{p}</span>
             </li>
           ))}
         </ul>

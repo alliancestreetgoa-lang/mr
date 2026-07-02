@@ -30,7 +30,7 @@ const DETAILS = [
 ]
 
 const inputClass =
-  'w-full rounded-xl border border-line bg-paper px-4 py-3 text-navy-900 placeholder:text-mute/70 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/25'
+  'w-full rounded-xl border border-line bg-paper px-4 py-3 text-brand-900 placeholder:text-mute/70 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/25'
 
 const encode = (data: Record<string, string>) =>
   Object.keys(data)
@@ -85,7 +85,7 @@ export function Contact() {
             <span className="h-px w-8 bg-accent" />
             Get in touch
           </p>
-          <h2 className="mt-5 font-display text-4xl font-light leading-tight tracking-tight text-navy-950 sm:text-5xl">
+          <h2 className="mt-5 font-display text-4xl font-light leading-tight tracking-tight text-brand-950 sm:text-5xl">
             Let’s bring clarity to your numbers
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate">
@@ -96,15 +96,15 @@ export function Contact() {
           <ul className="mt-10 space-y-3">
             {DETAILS.map(({ Icon, label, value, href }) => {
               const inner = (
-                <div className="flex items-start gap-4 rounded-2xl border border-line bg-white p-4 transition-colors group-hover:border-navy-900/15">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-navy-950 text-accent-light">
+                <div className="flex items-start gap-4 rounded-2xl border border-line bg-white p-4 transition-colors group-hover:border-brand-900/15">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-950 text-accent-light">
                     <Icon className="h-5 w-5" />
                   </span>
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wide text-slate">
                       {label}
                     </p>
-                    <p className="mt-0.5 font-medium text-navy-900">{value}</p>
+                    <p className="mt-0.5 font-medium text-brand-900">{value}</p>
                   </div>
                 </div>
               )
@@ -139,7 +139,7 @@ export function Contact() {
                     <path d="M20 6 9 17l-5-5" />
                   </svg>
                 </span>
-                <h3 className="mt-6 font-display text-2xl font-medium text-navy-950">
+                <h3 className="mt-6 font-display text-2xl font-medium text-brand-950">
                   Thank you — message received
                 </h3>
                 <p className="mt-3 max-w-sm text-slate">
@@ -153,7 +153,7 @@ export function Contact() {
                 <button
                   type="button"
                   onClick={() => setStatus('idle')}
-                  className="mt-6 text-sm font-semibold text-navy-900 underline underline-offset-4"
+                  className="mt-6 text-sm font-semibold text-brand-900 underline underline-offset-4"
                 >
                   Send another message
                 </button>
@@ -179,13 +179,13 @@ export function Contact() {
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-navy-900">
+                    <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-brand-900">
                       Full name <span className="text-accent">*</span>
                     </label>
                     <input id="name" name="name" required autoComplete="name" className={inputClass} placeholder="Jane Smith" />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-navy-900">
+                    <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-brand-900">
                       Phone
                     </label>
                     <input id="phone" name="phone" type="tel" autoComplete="tel" className={inputClass} placeholder="020 0000 0000" />
@@ -193,14 +193,14 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-navy-900">
+                  <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-brand-900">
                     Email <span className="text-accent">*</span>
                   </label>
                   <input id="email" name="email" type="email" required autoComplete="email" className={inputClass} placeholder="jane@company.co.uk" />
                 </div>
 
                 <div>
-                  <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-navy-900">
+                  <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-brand-900">
                     What can we help with?
                   </label>
                   <select id="service" name="service" defaultValue="" className={`${inputClass} appearance-none`}>
@@ -217,7 +217,7 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-navy-900">
+                  <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-brand-900">
                     Message <span className="text-accent">*</span>
                   </label>
                   <textarea id="message" name="message" required rows={4} className={`${inputClass} resize-none`} placeholder="Tell us a little about your business and what you’re looking for…" />
@@ -237,7 +237,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 text-sm font-semibold text-paper transition-all hover:bg-navy-800 hover:shadow-lg hover:shadow-navy-900/15 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-brand-900 px-7 py-3.5 text-sm font-semibold text-paper transition-all hover:bg-brand-800 hover:shadow-lg hover:shadow-brand-900/15 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {status === 'submitting' ? (
                     <>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { BUSINESS } from '../data'
 import { IconPhone } from './Icons'
+import { Logo } from './Logo'
 
 const LINKS = [
   { href: '#services', label: 'Services' },
@@ -45,22 +46,10 @@ export function Nav() {
           className="flex items-center gap-3"
           aria-label={`${BUSINESS.name} — home`}
         >
-          <span
-            className={`grid h-10 w-10 place-items-center rounded-lg font-display text-lg font-semibold transition-colors ${
-              solid
-                ? 'bg-navy-900 text-paper'
-                : 'border border-white/25 bg-white/10 text-white'
-            }`}
-          >
-            MR
-          </span>
-          <span
-            className={`hidden font-display text-lg font-semibold tracking-tight transition-colors sm:block ${
-              solid ? 'text-navy-900' : 'text-white'
-            }`}
-          >
-            M.R. Accountants
-          </span>
+          <Logo
+            onDark={!solid}
+            className="h-11 w-auto rounded-md bg-white p-1 shadow-sm ring-1 ring-black/5"
+          />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -70,7 +59,7 @@ export function Nav() {
               href={l.href}
               className={`text-sm font-medium transition-colors ${
                 solid
-                  ? 'text-slate hover:text-navy-900'
+                  ? 'text-slate hover:text-brand-900'
                   : 'text-white/80 hover:text-white'
               }`}
             >
@@ -81,8 +70,8 @@ export function Nav() {
             href="#contact"
             className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all ${
               solid
-                ? 'bg-navy-900 text-paper hover:bg-navy-800 hover:shadow-lg hover:shadow-navy-900/15'
-                : 'bg-white text-navy-950 hover:bg-white hover:shadow-lg hover:shadow-black/20'
+                ? 'bg-brand-900 text-paper hover:bg-brand-800 hover:shadow-lg hover:shadow-brand-900/15'
+                : 'bg-white text-brand-950 hover:bg-white hover:shadow-lg hover:shadow-black/20'
             }`}
           >
             Book a consultation
@@ -93,7 +82,7 @@ export function Nav() {
           type="button"
           onClick={() => setOpen((v) => !v)}
           className={`grid h-11 w-11 place-items-center rounded-lg transition-colors md:hidden ${
-            solid ? 'text-navy-900 hover:bg-paper-2' : 'text-white hover:bg-white/10'
+            solid ? 'text-brand-900 hover:bg-paper-2' : 'text-white hover:bg-white/10'
           }`}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
@@ -130,14 +119,14 @@ export function Nav() {
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-3 text-base font-medium text-navy-800 transition-colors hover:bg-paper-2"
+              className="rounded-lg px-3 py-3 text-base font-medium text-brand-800 transition-colors hover:bg-paper-2"
             >
               {l.label}
             </a>
           ))}
           <a
             href={BUSINESS.phoneHref}
-            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-5 py-3 text-base font-semibold text-paper"
+            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-brand-900 px-5 py-3 text-base font-semibold text-paper"
           >
             <IconPhone className="h-5 w-5" />
             {BUSINESS.phone}

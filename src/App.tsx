@@ -2,6 +2,7 @@ import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { TrustBar } from './components/TrustBar'
 import { Services } from './components/Services'
+import { HelpDirectory } from './components/HelpDirectory'
 import { About } from './components/About'
 import { Process } from './components/Process'
 import { Testimonial } from './components/Testimonial'
@@ -19,6 +20,7 @@ function App() {
         <Hero />
         <TrustBar />
         <Services />
+        <HelpDirectory />
         <About />
         <Process />
         <Testimonial />

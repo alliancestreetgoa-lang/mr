@@ -10,7 +10,7 @@ export function Services() {
             <span className="h-px w-8 bg-accent" />
             How we can help
           </p>
-          <h2 className="mt-5 font-display text-4xl font-light leading-tight tracking-tight text-navy-950 sm:text-5xl">
+          <h2 className="mt-5 font-display text-4xl font-light leading-tight tracking-tight text-brand-950 sm:text-5xl">
             One practice, the full financial picture
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate">
@@ -25,7 +25,7 @@ export function Services() {
             return (
               <article
                 key={group.id}
-                className="reveal group relative flex flex-col overflow-hidden rounded-3xl border border-line bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-navy-900/15 hover:shadow-xl hover:shadow-navy-950/8 sm:p-10"
+                className="reveal group relative flex flex-col overflow-hidden rounded-3xl border border-line bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-900/15 hover:shadow-xl hover:shadow-brand-950/8 sm:p-10"
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
                 <span
@@ -35,11 +35,11 @@ export function Services() {
                   0{i + 1}
                 </span>
 
-                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-navy-950 text-accent-light transition-colors group-hover:bg-accent group-hover:text-white">
+                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-brand-950 text-accent-light transition-colors group-hover:bg-accent group-hover:text-white">
                   <Icon className="h-7 w-7" />
                 </span>
 
-                <h3 className="mt-6 font-display text-2xl font-medium text-navy-950">
+                <h3 className="mt-6 font-display text-2xl font-medium text-brand-950">
                   {group.title}
                 </h3>
                 <p className="mt-3 leading-relaxed text-slate">{group.blurb}</p>
@@ -48,7 +48,7 @@ export function Services() {
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-2.5 text-sm text-navy-800"
+                      className="flex items-start gap-2.5 text-sm text-brand-800"
                     >
                       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                       {item}
@@ -60,14 +60,14 @@ export function Services() {
           })}
         </div>
 
-        <div className="reveal mt-12 flex flex-col items-start gap-4 rounded-3xl bg-navy-950 px-8 py-8 text-paper sm:flex-row sm:items-center sm:justify-between sm:px-10">
+        <div className="reveal mt-12 flex flex-col items-start gap-4 rounded-3xl bg-brand-950 px-8 py-8 text-paper sm:flex-row sm:items-center sm:justify-between sm:px-10">
           <p className="max-w-xl font-display text-xl font-light sm:text-2xl">
             Not sure which of these you need? That is exactly what a first
             conversation is for.
           </p>
           <a
             href="#contact"
-            className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-paper px-6 py-3 text-sm font-semibold text-navy-950 transition-all hover:bg-white"
+            className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-paper px-6 py-3 text-sm font-semibold text-brand-950 transition-all hover:bg-white"
           >
             Talk to us
             <IconArrow className="h-4 w-4 transition-transform group-hover:translate-x-1" />

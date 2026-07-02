@@ -5,12 +5,12 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-navy-950 text-paper"
+      className="relative overflow-hidden bg-brand-950 text-paper"
     >
       {/* Ambient background */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full bg-accent/20 blur-[120px]" />
-        <div className="absolute -bottom-48 -left-32 h-[32rem] w-[32rem] rounded-full bg-navy-700/40 blur-[120px]" />
+        <div className="absolute -bottom-48 -left-32 h-[32rem] w-[32rem] rounded-full bg-brand-700/40 blur-[120px]" />
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -44,7 +44,7 @@ export function Hero() {
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
               href="#contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-semibold text-navy-950 transition-all hover:bg-white hover:shadow-xl hover:shadow-black/20"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-semibold text-brand-950 transition-all hover:bg-white hover:shadow-xl hover:shadow-black/20"
             >
               Book a free consultation
               <IconArrow className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -62,7 +62,7 @@ export function Hero() {
         {/* Stat strip */}
         <dl className="mt-16 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-paper/10 bg-paper/10 sm:mt-20 sm:grid-cols-4">
           {STATS.map((s) => (
-            <div key={s.label} className="bg-navy-950/60 px-5 py-6 backdrop-blur">
+            <div key={s.label} className="bg-brand-950/60 px-5 py-6 backdrop-blur">
               <dt className="font-display text-2xl font-medium text-paper sm:text-3xl">
                 {s.value}
               </dt>

@@ -5,26 +5,28 @@
   --font-display: 'Fraunces', ui-serif, Georgia, serif;
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 
-  /* Brand — professional navy + editorial ink */
-  --color-navy-950: #060b1a;
-  --color-navy-900: #0f172a;
-  --color-navy-800: #1b2740;
-  --color-navy-700: #263352;
-  --color-navy-600: #3a4a6b;
+  /* Brand — deep greens (from the logo), used for dark sections & UI ink */
+  --color-brand-950: #0b2018;
+  --color-brand-900: #123528;
+  --color-brand-800: #1b4a37;
+  --color-brand-700: #245e46;
+  --color-brand-600: #327c5b;
 
-  --color-ink: #0b1220;
-  --color-slate: #475569;
-  --color-mute: #64748b;
+  --color-ink: #10231b;
+  --color-slate: #4a5d55;
+  --color-mute: #6b7f76;
 
-  --color-accent: #0369a1;
-  --color-accent-dark: #075985;
-  --color-accent-light: #0ea5e9;
+  /* Accent — the logo's medium green ("M") + a text-safe darker shade */
+  --color-accent: #2a7049; /* AA on white for text/links */
+  --color-accent-dark: #205839;
+  --color-accent-light: #4e9c74; /* the "M" green — decorative / on-dark */
 
-  --color-paper: #f8fafc;
-  --color-paper-2: #eef2f7;
-  --color-line: #e2e8f0;
+  /* The "R" sage green — soft light accent on dark backgrounds */
+  --color-sage: #a9c9a4;
 
-  --color-gold: #b8894a;
+  --color-paper: #f7faf8;
+  --color-paper-2: #edf3ef;
+  --color-line: #dfe7e2;
 }
 
 @layer base {
@@ -47,7 +49,7 @@
   }
 
   ::selection {
-    background-color: var(--color-navy-900);
+    background-color: var(--color-brand-900);
     color: #fff;
   }
 }

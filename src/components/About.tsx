@@ -10,7 +10,7 @@ export function About() {
             <span className="h-px w-8 bg-accent" />
             The practice
           </p>
-          <h2 className="mt-5 font-display text-4xl font-light leading-[1.15] tracking-tight text-navy-950 sm:text-5xl">
+          <h2 className="mt-5 font-display text-4xl font-light leading-[1.15] tracking-tight text-brand-950 sm:text-5xl">
             Numbers are the easy part.{' '}
             <span className="italic text-accent">Judgement</span> is what we
             really offer.
@@ -30,14 +30,14 @@ export function About() {
             </p>
           </div>
 
-          <blockquote className="mt-9 border-l-2 border-accent pl-6 font-display text-xl font-light italic leading-relaxed text-navy-900 sm:text-2xl">
+          <blockquote className="mt-9 border-l-2 border-accent pl-6 font-display text-xl font-light italic leading-relaxed text-brand-900 sm:text-2xl">
             “{BUSINESS.tagline}”
           </blockquote>
         </div>
 
         {/* Credential card */}
         <div className="reveal lg:col-span-5">
-          <div className="relative overflow-hidden rounded-3xl bg-navy-950 p-8 text-paper sm:p-10">
+          <div className="relative overflow-hidden rounded-3xl bg-brand-950 p-8 text-paper sm:p-10">
             <div
               aria-hidden
               className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent/25 blur-3xl"
@@ -60,13 +60,13 @@ export function About() {
               </p>
 
               <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-paper/10 bg-paper/10">
-                <div className="bg-navy-950 px-5 py-5">
+                <div className="bg-brand-950 px-5 py-5">
                   <dt className="text-xs uppercase tracking-wide text-paper/50">
                     Based in
                   </dt>
                   <dd className="mt-1 font-medium">Woodford Green</dd>
                 </div>
-                <div className="bg-navy-950 px-5 py-5">
+                <div className="bg-brand-950 px-5 py-5">
                   <dt className="text-xs uppercase tracking-wide text-paper/50">
                     Serving
                   </dt>
