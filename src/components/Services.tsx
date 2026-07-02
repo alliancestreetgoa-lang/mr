@@ -25,36 +25,52 @@ export function Services() {
             return (
               <article
                 key={group.id}
-                className="reveal group relative flex flex-col overflow-hidden rounded-3xl border border-line bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-900/15 hover:shadow-xl hover:shadow-brand-950/8 sm:p-10"
+                className="reveal group relative flex flex-col overflow-hidden rounded-3xl border border-line bg-white transition-all duration-300 hover:-translate-y-1 hover:border-brand-900/15 hover:shadow-xl hover:shadow-brand-950/8"
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute right-6 top-6 font-display text-6xl font-light text-paper-2 transition-colors group-hover:text-accent/10"
-                >
-                  0{i + 1}
-                </span>
+                {/* Image header */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={group.image}
+                    alt={`${group.title} — M.R. Accountants`}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-brand-950/55 via-brand-950/10 to-transparent"
+                  />
+                  <span
+                    aria-hidden
+                    className="absolute right-5 top-4 font-display text-5xl font-light text-white/75"
+                  >
+                    0{i + 1}
+                  </span>
+                </div>
 
-                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-brand-950 text-accent-light transition-colors group-hover:bg-accent group-hover:text-white">
-                  <Icon className="h-7 w-7" />
-                </span>
+                {/* Content */}
+                <div className="relative flex flex-1 flex-col p-8 sm:p-9">
+                  <span className="-mt-[3.75rem] grid h-14 w-14 place-items-center rounded-2xl bg-brand-950 text-accent-light shadow-lg ring-4 ring-white transition-colors group-hover:bg-accent group-hover:text-white">
+                    <Icon className="h-7 w-7" />
+                  </span>
 
-                <h3 className="mt-6 font-display text-2xl font-medium text-brand-950">
-                  {group.title}
-                </h3>
-                <p className="mt-3 leading-relaxed text-slate">{group.blurb}</p>
+                  <h3 className="mt-5 font-display text-2xl font-medium text-brand-950">
+                    {group.title}
+                  </h3>
+                  <p className="mt-3 leading-relaxed text-slate">{group.blurb}</p>
 
-                <ul className="mt-6 grid gap-2.5 border-t border-line pt-6">
-                  {group.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2.5 text-sm text-brand-800"
-                    >
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="mt-6 grid gap-2.5 border-t border-line pt-6">
+                    {group.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-2.5 text-sm text-brand-800"
+                      >
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </article>
             )
           })}

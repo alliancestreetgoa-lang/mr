@@ -64,6 +64,13 @@ endpoint.
 > **Note:** Netlify Forms only work on a deployed Netlify site — submitting on `localhost`
 > will show the error state. That's expected.
 
+## Images
+
+Section photography lives in `public/images/` (hero, service cards, about, directory).
+These are real photos from **Unsplash** (free for commercial use, no attribution
+required) and are self-hosted for reliability. Swap any file — keep the same name — to
+change the picture without touching code.
+
 ## Structure
 
 ```

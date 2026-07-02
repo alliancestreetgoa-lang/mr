@@ -36,6 +36,15 @@ export function HelpDirectory() {
             Discuss your needs
             <IconArrow className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
+
+          <div className="mt-10 hidden overflow-hidden rounded-3xl border border-line shadow-sm lg:block">
+            <img
+              src="/images/help.jpg"
+              alt="An M.R. Accountants adviser working with a client"
+              loading="lazy"
+              className="aspect-[4/3] w-full object-cover"
+            />
+          </div>
         </div>
 
         {/* Directory columns */}

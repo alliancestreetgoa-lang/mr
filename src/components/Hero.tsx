@@ -22,7 +22,8 @@ export function Hero() {
       </div>
 
       <div className="container-x relative pb-20 pt-36 sm:pb-28 sm:pt-44">
-        <div className="max-w-3xl">
+        <div className="grid items-center gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-7">
           <p className="eyebrow text-accent-light">
             <span className="h-px w-8 bg-accent-light" />
             Chartered Certified Accountants · Essex
@@ -56,6 +57,22 @@ export function Hero() {
               <IconPhone className="h-4 w-4" />
               {BUSINESS.phone}
             </a>
+          </div>
+          </div>
+
+          {/* Hero image */}
+          <div className="hidden lg:col-span-5 lg:block">
+            <div className="relative">
+              <img
+                src="/images/hero.jpg"
+                alt="M.R. Accountants advising business clients in a meeting"
+                className="aspect-[4/5] w-full rounded-3xl object-cover shadow-2xl"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/15"
+              />
+            </div>
           </div>
         </div>
 

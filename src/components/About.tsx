@@ -35,8 +35,16 @@ export function About() {
           </blockquote>
         </div>
 
-        {/* Credential card */}
-        <div className="reveal lg:col-span-5">
+        {/* Photo + credential card */}
+        <div className="reveal space-y-6 lg:col-span-5">
+          <div className="overflow-hidden rounded-3xl border border-line shadow-sm">
+            <img
+              src="/images/about.jpg"
+              alt="The M.R. Accountants team in their Essex office"
+              loading="lazy"
+              className="aspect-[16/10] w-full object-cover"
+            />
+          </div>
           <div className="relative overflow-hidden rounded-3xl bg-brand-950 p-8 text-paper sm:p-10">
             <div
               aria-hidden
