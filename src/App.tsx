@@ -1,4 +1,3 @@
-import { MotionConfig } from 'framer-motion'
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { Services } from './components/Services'
@@ -8,10 +7,13 @@ import { Process } from './components/Process'
 import { Testimonial } from './components/Testimonial'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
+import { useScrollReveal } from './lib/useScrollReveal'
 
 function App() {
+  useScrollReveal()
+
   return (
-    <MotionConfig reducedMotion="user">
+    <>
       <Nav />
       <main>
         <Hero />
@@ -23,7 +25,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
-    </MotionConfig>
+    </>
   )
 }
 

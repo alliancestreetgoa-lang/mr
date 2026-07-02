@@ -1,9 +1,7 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { HELP_DIRECTORY, type HelpService } from '../data'
 import { IconArrow } from './Icons'
 import { ServiceModal } from './ServiceModal'
-import { revealProps } from '../lib/motion'
 
 export function HelpDirectory() {
   const [active, setActive] = useState<{
@@ -18,7 +16,7 @@ export function HelpDirectory() {
     >
       <div className="container-x grid gap-12 lg:grid-cols-12">
         {/* Heading column */}
-        <motion.div className="lg:col-span-4" {...revealProps}>
+        <div className="lg:col-span-4" data-reveal>
           <p className="eyebrow">
             <span className="h-px w-8 bg-accent" />
             Full service list
@@ -47,10 +45,10 @@ export function HelpDirectory() {
               className="aspect-[4/3] w-full object-cover"
             />
           </div>
-        </motion.div>
+        </div>
 
         {/* Directory columns */}
-        <motion.div className="lg:col-span-8" {...revealProps}>
+        <div className="lg:col-span-8" data-reveal>
           <div className="gap-x-10 sm:columns-2">
             {HELP_DIRECTORY.map((cat) => (
               <div key={cat.title} className="mb-9 break-inside-avoid">
@@ -91,7 +89,7 @@ export function HelpDirectory() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <ServiceModal

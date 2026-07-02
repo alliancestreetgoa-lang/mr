@@ -1,13 +1,11 @@
-import { motion } from 'framer-motion'
 import { BUSINESS } from '../data'
-import { revealProps } from '../lib/motion'
 
 export function About() {
   return (
     <section id="about" className="scroll-mt-20 border-y border-line bg-paper-2/60 py-24 sm:py-28">
       <div className="container-x grid items-center gap-14 lg:grid-cols-12">
         {/* Editorial statement */}
-        <motion.div className="lg:col-span-7" {...revealProps}>
+        <div className="lg:col-span-7" data-reveal>
           <p className="eyebrow">
             <span className="h-px w-8 bg-accent" />
             The practice
@@ -35,10 +33,10 @@ export function About() {
           <blockquote className="mt-9 border-l-2 border-accent pl-6 font-display text-xl font-light italic leading-relaxed text-brand-900 sm:text-2xl">
             “{BUSINESS.tagline}”
           </blockquote>
-        </motion.div>
+        </div>
 
         {/* Photo + credential card */}
-        <motion.div className="space-y-6 lg:col-span-5" {...revealProps}>
+        <div className="space-y-6 lg:col-span-5" data-reveal>
           <div className="overflow-hidden rounded-3xl border border-line shadow-sm">
             <img
               src="/images/about.jpg"
@@ -85,7 +83,7 @@ export function About() {
               </dl>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
