@@ -354,7 +354,7 @@ export const TRUST_POINTS = [
 
 export const STATS = [
   { value: 'ACCA', label: 'Chartered Certified' },
-  { value: '20+', label: 'Areas of expertise' },
-  { value: 'Essex', label: 'Rooted locally' },
-  { value: '1:1', label: 'Partner-led service' },
+  { value: '20+', label: 'Years of experience' },
+  { value: '100%', label: 'On-time compliance' },
+  { value: '4.9/5', label: 'Average client rating' },
 ]

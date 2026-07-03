@@ -1,6 +1,7 @@
 import { asset } from '../lib/asset'
 import { BUSINESS, STATS, TRUST_POINTS } from '../data'
 import { IconArrow, IconPhone } from './Icons'
+import CountUp from './CountUp'
 
 export function Hero() {
   return (
@@ -79,7 +80,7 @@ export function Hero() {
           {STATS.map((s) => (
             <div key={s.label} className="bg-white px-5 py-6">
               <dt className="font-display text-2xl font-medium text-brand-950 sm:text-3xl">
-                {s.value}
+                <CountUp value={s.value} />
               </dt>
               <dd className="mt-1 text-xs font-medium uppercase tracking-wide text-mute">
                 {s.label}
